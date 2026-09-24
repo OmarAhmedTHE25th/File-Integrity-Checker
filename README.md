@@ -53,22 +53,30 @@ python Checker.py
 
 ## Tests
 
-- TODO: Add automated tests for hash verification and directory scanning.
-- Manual verification can be performed by modifying or deleting files in the target directory and running `Checker.py`.
+Automated tests are provided to verify the integrity checking logic.
+
+Run the tests using Python's built-in `unittest` framework:
+```bash
+python test_checker.py
+```
+
+Manual verification can be performed by modifying or deleting files in the target directory and running `Checker.py`.
 
 ## Project Structure
 
 ```text
 File Integrity Checker/
 ├── Checker.py       # Main logic for hashing and comparison
+├── test_checker.py  # Automated tests
 ├── hashes.json      # Storage for file hashes (generated after first run)
 ├── README.md        # Project documentation
+├── LICENSE          # MIT License file
 └── .venv/           # Python virtual environment (if created)
 ```
 
 ## License
 
-- TODO: Add license information (e.g., MIT, Apache 2.0).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 *Based on: [roadmap.sh/projects/file-integrity-checker](https://roadmap.sh/projects/file-integrity-checker)*
