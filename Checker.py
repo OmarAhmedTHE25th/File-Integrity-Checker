@@ -3,8 +3,11 @@ from pathlib import Path
 import hashlib
 
 def hash_file(file_path):
-    with open(file_path, "rb") as file:
-        return hashlib.sha256(file.read()).hexdigest()
+    hasher =  hashlib.sha256()
+    with open(file_path, "rb") as FILE:
+        for chunk in iter(lambda: FILE.read(8192), b""):
+          hasher.update(chunk)
+    return hasher.hexdigest()
 
 while True:
     path = input("Enter Path: ")
@@ -28,7 +31,8 @@ if choice == 'y':
 if not json_file.exists():
 
     for item in dir_path.iterdir():
-        hashes[item.name] = hash_file(item)
+        if item.is_file():
+         hashes[item.name] = hash_file(item)
 
     with open("hashes.json","w") as json_file:
         json.dump(hashes,json_file,indent=4)
@@ -52,19 +56,5 @@ else:
         for name in common_keys:
             if saved_hashes[name] != fresh_hashes[name]:
                 print(f"File {name} has been tampered with")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
