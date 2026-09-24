@@ -19,7 +19,7 @@ This project provides a command-line interface to:
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/OmarAhmedTHE25th/File-Integrity-Checker.git
    cd "File Integrity Checker"
    ```
 
